@@ -18,6 +18,7 @@ namespace Xamarin_test_ver2.ViewModels
         protected INavigationService NavigationService { get; private set; }
         private readonly IPageDialogService PageDialogService;
         public DelegateCommand MoveToMainPageCommand { get; }
+        public DelegateCommand MoveToUserPageCommand { get; }
         public DelegateCommand ShowAlertCommand { get; }
         private string text;
         public string Text
@@ -29,11 +30,19 @@ namespace Xamarin_test_ver2.ViewModels
         public RegistrationPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
         {
             this.NavigationService = navigationService;
+            this.PageDialogService = pageDialogService;
             MoveToMainPageCommand = new DelegateCommand(async () =>
             {
                 await this.NavigationService.GoBackAsync();
             });
-
+            MoveToUserPageCommand = new DelegateCommand(async () =>
+            {
+                await this.NavigationService.NavigateAsync("UserPage");
+            });
+            ShowAlertCommand = new DelegateCommand(async () =>
+            {
+                await PageDialogService.DisplayAlertAsync("Alert", "登録ページやな, Ryu1.", "OK");
+            });
         }
 
         public Task<INavigationResult> GoBackAsync()

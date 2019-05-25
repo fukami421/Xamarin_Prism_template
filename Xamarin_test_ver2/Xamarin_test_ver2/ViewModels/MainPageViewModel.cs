@@ -46,7 +46,7 @@ namespace Xamarin_test_ver2.ViewModels
 
             ShowAlertCommand = new DelegateCommand(async () =>
             {
-                await PageDialogService.DisplayAlertAsync("Alert", "Hello, Ryu1.", "OK");
+                await PageDialogService.DisplayAlertAsync("Alert", "Mainページやな, Ryu1.", "OK");
             });
         }
 

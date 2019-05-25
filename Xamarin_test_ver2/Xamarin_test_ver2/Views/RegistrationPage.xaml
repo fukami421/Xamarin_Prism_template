@@ -9,5 +9,9 @@
         <Label Text="登録するよ" />
         <Button Text="MainPageへ"
                 Command="{Binding MoveToMainPageCommand}"/>
+        <Button Text="UserPageへ"
+                Command="{Binding MoveToUserPageCommand}"/>
+        <Button Text="アラート表示"
+                Command="{Binding ShowAlertCommand}"/>        
     </StackLayout>
 </ContentPage>
